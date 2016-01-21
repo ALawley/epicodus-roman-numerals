@@ -1,17 +1,36 @@
 // Example document ready function and form submit function w/ event handler to prevent default
 var romanNumeral = function(number) {
-  var numberArray = [];
-  for (var index = 1; index <= number.length; index +=1) {
-    numberArray.push(number.slice((index - 1), index));
-  };
   var str = "";
-
-  str= strTens + strOnes;
+  var array = numberParse(number);
+  var intlLength = array.length
+  for (var index = 1; index <= intlLength; index += 1) {
+    if (index === 1) {
+      str = ones(array.pop());
+    } else if (index === 2) {
+      str = (tens(array.pop()) + str);
+    } else if (index === 3) {
+      str = (hundreds(array.pop()) + str);
+    } else if (index === 4) {
+      str = (thousands(array.pop()) + str);
+    }
+    else {}
+  };
   return str;
 }
 
-var ones = function(number) {
+// for each loop of that array
 
+var numberParse = function(number) {
+    var numberString = number.toString();
+    var numberArray = [];
+    for (var index = 1; index <= numberString.length; index +=1) {
+      numberArray.push(numberString.slice((index - 1), index));
+    };
+    return numberArray;
+}
+
+var ones = function(number) {
+  number = parseInt(number);
   var strOnes = "";
   for (var index = 1; index <= number; index +=1) {
     strOnes += "I";
@@ -19,13 +38,15 @@ var ones = function(number) {
       strOnes = "IV";
     } else if (index === 5) {
       strOnes = "V";
+    } else if (index === 9) {
+      strOnes = "IX";
     } else {}
   };
   return strOnes;
 }
 
 var tens = function(number) {
-
+  number = parseInt(number);
   var strTens = "";
   for (var index = 1; index <= number; index +=1) {
     strTens += "X";
@@ -41,7 +62,7 @@ var tens = function(number) {
 }
 
 var hundreds = function(number) {
-
+  number = parseInt(number);
   var strHundreds = "";
   for (var index = 1; index <= number; index +=1) {
     strHundreds += "C";
@@ -55,6 +76,21 @@ var hundreds = function(number) {
   };
   return strHundreds;
 }
+
+var thousands = function(number) {
+  number = parseInt(number);
+  var strThousands = "";
+  for (var index = 1; index <= number; index +=1) {
+    strThousands += "M";
+    if (index >= 4) {
+      alert("Invalid entry. Try a lower number");
+      return false;
+    }  else {}
+  };
+  return strThousands;
+}
+
+
 $(document).ready(function() {
   $("form").submit(function(event){
     var str = $("input#puzzleString").val();
