@@ -23,6 +23,12 @@ describe("romanNumeral", function(){
   it("will not accept numbers greater than 3999", function () {
     expect(romanNumeral(5555)).to.equal(false);
   });
+  it("will not accept numbers less than 1", function () {
+    expect(romanNumeral(-555)).to.equal(false);
+  });
+  it("will ignore decimals", function () {
+    expect(romanNumeral(3.5)).to.equal("III");
+  });
   // it("evaluates two digit numbers into roman numerals", function() {
   //   expect(romanNumeral(73)).to.equal("LXXIII");
   // });

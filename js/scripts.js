@@ -1,21 +1,26 @@
 // Example document ready function and form submit function w/ event handler to prevent default
 var romanNumeral = function(number) {
-  var str = "";
-  var array = numberParse(number);
-  var intlLength = array.length
-  for (var index = 1; index <= intlLength; index += 1) {
-    if (index === 1) {
-      str = ones(array.pop());
-    } else if (index === 2) {
-      str = (tens(array.pop()) + str);
-    } else if (index === 3) {
-      str = (hundreds(array.pop()) + str);
-    } else if (index === 4) {
-      str = (thousands(array.pop()) + str);
-    }
-    else {}
-  };
-  return str;
+  if ((number > 3999) || (number < 1)) {
+    return false;
+  } else {
+    number = parseInt(number);
+    var str = "";
+    var array = numberParse(number);
+    var intlLength = array.length
+    for (var index = 1; index <= intlLength; index += 1) {
+      if (index === 1) {
+        str = ones(array.pop());
+      } else if (index === 2) {
+        str = (tens(array.pop()) + str);
+      } else if (index === 3) {
+        str = (hundreds(array.pop()) + str);
+      } else if (index === 4) {
+        str = (thousands(array.pop()) + str);
+      }
+      else {}
+    };
+    return str;
+  }
 }
 
 // for each loop of that array
