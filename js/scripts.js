@@ -39,6 +39,22 @@ var tens = function(number) {
   };
   return strTens;
 }
+
+var hundreds = function(number) {
+
+  var strHundreds = "";
+  for (var index = 1; index <= number; index +=1) {
+    strHundreds += "C";
+    if (index === 4) {
+      strHundreds = "CD";
+    } else if (index === 5) {
+      strHundreds = "D";
+    } else if (index === 9) {
+      strHundreds = "CM";
+    }  else {}
+  };
+  return strHundreds;
+}
 $(document).ready(function() {
   $("form").submit(function(event){
     var str = $("input#puzzleString").val();

@@ -21,3 +21,9 @@ describe("tens", function () {
     expect(tens(9)).to.equal("XC");
   });
 });
+
+describe("hundreds", function () {
+  it("evaluate single digit fed in into hundreds place roman numerals", function() {
+    expect(hundreds(3)).to.equal("CCC");
+  });
+});
