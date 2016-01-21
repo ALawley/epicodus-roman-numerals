@@ -21,10 +21,10 @@ describe("romanNumeral", function(){
     expect(romanNumeral(99)).to.equal("XCIX");
   });
   it("will not accept numbers greater than 3999", function () {
-    expect(romanNumeral(5555)).to.equal(false);
+    expect(romanNumeral(5555)).to.equal("you did not enter a valid number!");
   });
   it("will not accept numbers less than 1", function () {
-    expect(romanNumeral(-555)).to.equal(false);
+    expect(romanNumeral(-555)).to.equal("you did not enter a valid number!");
   });
   it("will ignore decimals", function () {
     expect(romanNumeral(3.5)).to.equal("III");

@@ -1,7 +1,7 @@
 // Example document ready function and form submit function w/ event handler to prevent default
 var romanNumeral = function(number) {
   if ((number > 3999) || (number < 1)) {
-    return false;
+    return "you did not enter a valid number!";
   } else {
     number = parseInt(number);
     var str = "";
@@ -98,16 +98,9 @@ var thousands = function(number) {
 
 $(document).ready(function() {
   $("form").submit(function(event){
-    var str = $("input#puzzleString").val();
-    var output = wordPuzzle(str);
-    $(".question").hide();
-    $(".result").show();
-    $("p#result").text(output)
-    event.preventDefault();
-  });
-  $("#return").click(function(event) {
-    $(".question").show();
-    $(".result").hide();
+    var number = $("input#romanString").val();
+    var output = romanNumeral(number);
+    $(".result").text(output);
     event.preventDefault();
   });
 });
