@@ -1,4 +1,5 @@
-// Example document ready function and form submit function w/ event handler to prevent default
+// Main function, takes input number, runs it through numberParse function, then runs each single digit string through its according function, and adds those onto the result string.
+
 var romanNumeral = function(number) {
   if ((number > 3999) || (number < 1)) {
     return "you did not enter a valid number!";
@@ -23,7 +24,7 @@ var romanNumeral = function(number) {
   }
 }
 
-// for each loop of that array
+// Helper function, takes input number and converts it into an array with each digit of that number inside its own string element
 
 var numberParse = function(number) {
     var numberString = number.toString();
@@ -33,6 +34,8 @@ var numberParse = function(number) {
     };
     return numberArray;
 }
+
+// Helper function, takes a single digit number and returns it as ones-place roman numerals
 
 var ones = function(number) {
   number = parseInt(number);
@@ -50,6 +53,8 @@ var ones = function(number) {
   return strOnes;
 }
 
+// Helper function, takes a single digit number and returns it as tens-place roman numerals
+
 var tens = function(number) {
   number = parseInt(number);
   var strTens = "";
@@ -65,6 +70,8 @@ var tens = function(number) {
   };
   return strTens;
 }
+
+// Helper function, takes a single digit number and returns it as hundreds-place roman numerals
 
 var hundreds = function(number) {
   number = parseInt(number);
@@ -82,6 +89,8 @@ var hundreds = function(number) {
   return strHundreds;
 }
 
+// Helper function, takes a single digit number and returns it as thousands-place roman numerals
+
 var thousands = function(number) {
   number = parseInt(number);
   var strThousands = "";
@@ -95,6 +104,7 @@ var thousands = function(number) {
   return strThousands;
 }
 
+// Front end function, takes output of main function and prints it.
 
 $(document).ready(function() {
   $("form").submit(function(event){

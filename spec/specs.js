@@ -29,9 +29,6 @@ describe("romanNumeral", function(){
   it("will ignore decimals", function () {
     expect(romanNumeral(3.5)).to.equal("III");
   });
-  // it("evaluates two digit numbers into roman numerals", function() {
-  //   expect(romanNumeral(73)).to.equal("LXXIII");
-  // });
 });
 
 describe("ones", function() {
