@@ -1,21 +1,14 @@
 // Example document ready function and form submit function w/ event handler to prevent default
 var romanNumeral = function(number) {
-  var str = ""
-  if (number === 1) {
-    str = "I"
-  } else if (number === 5){
-    str = "V"
-  } else if (number === 10){
-    str = "X"
-  } else if (number === 50){
-    str = "L"
-  } else if (number === 100){
-    str = "C"
-  } else if (number === 500){
-    str = "D"
-  } else if (number === 10000){
-    str = "M"
-  }
+  var str = "";
+  for (var index = 1; index <= number; index +=1) {
+    str += "I";
+    if (index === 4) {
+      str = "IV";
+    } else if (index === 5) {
+      str = "V";
+    } else {}
+  };
   return str;
 }
 
