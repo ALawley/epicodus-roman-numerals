@@ -48,7 +48,7 @@ var ones = function(number) {
       strOnes = "V";
     } else if (index === 9) {
       strOnes = "IX";
-    } else {}
+    } else {} //is there a reason for an empty else? 
   };
   return strOnes;
 }
